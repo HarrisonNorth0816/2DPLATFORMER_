@@ -1,0 +1,206 @@
+[gd_scene load_steps=30 format=3 uid="uid://cqwfa5aslniok"]
+
+[ext_resource type="Script" path="res://Enemies/Wolf_Attack.gd" id="1"]
+[ext_resource type="Script" path="res://Enemies/Wolf_Die.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://dk3i7i30inbrb" path="res://Assets/wolf_die.png" id="2_ecmix"]
+[ext_resource type="Texture2D" uid="uid://fk8t7s3lc5ne" path="res://Assets/wolf_idle.png" id="2_isfgn"]
+[ext_resource type="Texture2D" uid="uid://xwc7vp5ypvyo" path="res://Assets/wolf_attack.png" id="2_wrcjf"]
+[ext_resource type="Texture2D" uid="uid://dsvkyhpsb3eg1" path="res://Assets/wolf_move.png" id="3_t6qb0"]
+[ext_resource type="Script" path="res://StateMachine/StateMachine.gd" id="4"]
+[ext_resource type="Script" path="res://Enemies/Wolf_Move.gd" id="5"]
+[ext_resource type="Script" path="res://Enemies/Wolf_Idle.gd" id="6"]
+[ext_resource type="Script" path="res://Enemies/Wolf.gd" id="7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64ph3"]
+atlas = ExtResource("2_wrcjf")
+region = Rect2(0, 0, 50, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apsqv"]
+atlas = ExtResource("2_wrcjf")
+region = Rect2(50, 0, 50, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8qva"]
+atlas = ExtResource("2_wrcjf")
+region = Rect2(100, 0, 50, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lrln"]
+atlas = ExtResource("2_wrcjf")
+region = Rect2(150, 0, 50, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f7xq"]
+atlas = ExtResource("2_ecmix")
+region = Rect2(0, 0, 58, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58ssq"]
+atlas = ExtResource("2_ecmix")
+region = Rect2(58, 0, 58, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsodw"]
+atlas = ExtResource("2_ecmix")
+region = Rect2(116, 0, 58, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxgqq"]
+atlas = ExtResource("2_isfgn")
+region = Rect2(0, 0, 36, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efi8i"]
+atlas = ExtResource("3_t6qb0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdj7x"]
+atlas = ExtResource("3_t6qb0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlmka"]
+atlas = ExtResource("3_t6qb0")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nqtk"]
+atlas = ExtResource("3_t6qb0")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcy4m"]
+atlas = ExtResource("3_t6qb0")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv54v"]
+atlas = ExtResource("3_t6qb0")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i3i6"]
+atlas = ExtResource("3_t6qb0")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7edpn"]
+atlas = ExtResource("3_t6qb0")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="66"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64ph3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apsqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8qva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lrln")
+}],
+"loop": false,
+"name": &"Attacking",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f7xq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58ssq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsodw")
+}],
+"loop": false,
+"name": &"Dying",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxgqq")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efi8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdj7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlmka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nqtk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcy4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uv54v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i3i6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7edpn")
+}],
+"loop": true,
+"name": &"Moving",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="53"]
+size = Vector2(161, 82)
+
+[sub_resource type="RectangleShape2D" id="109"]
+size = Vector2(174, 2)
+
+[node name="Wolf" type="CharacterBody2D"]
+position = Vector2(1, 4)
+script = ExtResource("7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("66")
+animation = &"Attacking"
+frame = 3
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(48.5, 3)
+shape = SubResource("53")
+
+[node name="See" type="RayCast2D" parent="."]
+target_position = Vector2(200, 0)
+
+[node name="Can_Jump" type="RayCast2D" parent="."]
+target_position = Vector2(200, -200)
+
+[node name="Attack" type="RayCast2D" parent="."]
+position = Vector2(-2, -5)
+target_position = Vector2(217, 3)
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("6")
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource("5")
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("1")
+
+[node name="Timer" type="Timer" parent="StateMachine/Attack"]
+one_shot = true
+
+[node name="Die" type="Node" parent="StateMachine"]
+script = ExtResource("2")
+
+[node name="Above_and_Below" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Above_and_Below"]
+position = Vector2(20, -27)
+shape = SubResource("109")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="StateMachine/Attack/Timer" to="StateMachine/Attack" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Above_and_Below" to="." method="_on_Above_and_Below_body_entered"]

@@ -1,0 +1,213 @@
+[gd_scene load_steps=24 format=3 uid="uid://bnd0nihfc4j62"]
+
+[ext_resource type="Shader" path="res://effects/MainMenu.gdshader" id="1_uh3mm"]
+[ext_resource type="Script" path="res://Levels/infoButton.gd" id="2_3103v"]
+[ext_resource type="FontFile" uid="uid://sn5wo13acog1" path="res://Assets/font/procyon-font/Procyon-rgjAK.ttf" id="2_triha"]
+[ext_resource type="Shader" path="res://effects/MainMenu2.gdshader" id="3_scqtl"]
+[ext_resource type="Texture2D" uid="uid://do7aeukd4huey" path="res://Assets/Player/kneel/kneel.png" id="4_ijcgi"]
+[ext_resource type="Texture2D" uid="uid://brth7xy8dg5eq" path="res://Assets/Player/jump/jump1.png" id="5_1jx6l"]
+[ext_resource type="Texture2D" uid="uid://cxqucicmoyn31" path="res://Assets/Player/jump/jump2.png" id="6_46mal"]
+[ext_resource type="Texture2D" uid="uid://wufm12ypqjb0" path="res://Assets/Player/jump/jump3.png" id="7_yvcvg"]
+[ext_resource type="Texture2D" uid="uid://bq0ljnnpfgj3g" path="res://Assets/Player/fall/fall2.png" id="8_wdwur"]
+[ext_resource type="Texture2D" uid="uid://kpnjwu4n8lii" path="res://Assets/Player/fall/fall3.png" id="9_m1pic"]
+[ext_resource type="Texture2D" uid="uid://d1l60qeo1vikp" path="res://Assets/Player/idle/idle1.png" id="10_2ipw5"]
+[ext_resource type="Texture2D" uid="uid://bpo5uj4lvgwo8" path="res://Assets/Player/punch/punch.png" id="11_nuff6"]
+[ext_resource type="Texture2D" uid="uid://dvowsokhl77yu" path="res://Assets/enemy/bat/bat_move.png" id="11_quej5"]
+[ext_resource type="Texture2D" uid="uid://dhsilgmofnskh" path="res://Assets/enemy/golem/golem_move.png" id="12_sng8h"]
+[ext_resource type="Texture2D" uid="uid://xwc7vp5ypvyo" path="res://Assets/wolf_attack.png" id="13_qlw7e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yj2eb"]
+shader = ExtResource("1_uh3mm")
+shader_parameter/speed = 1.0
+shader_parameter/frequency = 10.0
+shader_parameter/amplitude = 0.1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_spipu"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("4_ijcgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1jx6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_46mal")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yvcvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wdwur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_m1pic")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vtf8h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_2ipw5")
+}, {
+"duration": 5.0,
+"texture": ExtResource("11_nuff6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2ipw5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtyw5"]
+atlas = ExtResource("11_quej5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjsem"]
+atlas = ExtResource("12_sng8h")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjc4l"]
+atlas = ExtResource("13_qlw7e")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qlls3"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_vtyw5")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_pjsem")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_cjc4l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xihnx"]
+shader = ExtResource("3_scqtl")
+shader_parameter/fisheye_strength = 1.0
+
+[node name="Info" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_yj2eb")
+offset_right = 1147.0
+offset_bottom = 646.0
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -567.0
+offset_top = -301.5
+offset_right = 567.0
+offset_bottom = 301.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.407843)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 62.0
+offset_right = 1116.0
+offset_bottom = 254.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_triha")
+text = "You are a netruner in the year 2049, there are rumors of a megachip that can be placed into a users head and gain access to all
+bio-implants of anyone. Which for you, is all you'd need to become the best hacker in all of Neo-Angeles. Scale to the top of the
+Generi-Corp building, infiltrate their securtiy, enter the maze-vault, and secure the chip to become a neo-legend! But dont worry,
+this is only a simulation! as a netrunner you can \"play\" through these areas to figure out the path of least resistance, so
+death is encouraged!
+
+Due to the goal of your mission, as well as your personal skill set- combat is discouraged, seeing as you may not have the ability
+to defeat all enemies you come across.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect"]
+position = Vector2(95, 286)
+scale = Vector2(2.87, 2.87)
+sprite_frames = SubResource("SpriteFrames_spipu")
+frame_progress = 0.0394678
+
+[node name="Label2" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 267.0
+offset_right = 1110.0
+offset_bottom = 371.0
+text = "Jump implant - Thanks to enhanced compression pistons put into your legs to replace your muscles, you have the ability to
+run at full speed 24/7, as well as enhancing your jumps. Thanks to the impants, you can kneel and compress the pistons
+in your legs to \"charge\" them, also thanks to the charging of the pistons it will save some of the latent energy stored, 
+allowing for a second jump. This will also take away any possible chance of injury from a fall.
+"
+
+[node name="Label2" type="Label" parent="ColorRect/Label2"]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 138.0
+offset_right = 940.0
+offset_bottom = 242.0
+text = "Punch - While your expertice is netrunning and stealth, you do have some basic combat training. You can handle bigger
+foes with ease however lack to ability to take on speedier- faster enmies easily."
+
+[node name="Label2" type="Label" parent="ColorRect/Label2/Label2"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 91.0
+offset_right = 943.0
+offset_bottom = 195.0
+text = "Enemies- there are a handful of gaurds that you will encounter throughout your time casing the joint, while your implants
+allow for some to die in one punch, be wary of what you can, and cannot kill."
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ColorRect"]
+position = Vector2(98, 419)
+scale = Vector2(2.87, 2.87)
+sprite_frames = SubResource("SpriteFrames_vtf8h")
+frame_progress = 0.948915
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="ColorRect"]
+position = Vector2(96, 545)
+scale = Vector2(2.58594, 2.13798)
+sprite_frames = SubResource("SpriteFrames_qlls3")
+frame_progress = 0.378519
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_xihnx")
+offset_right = 1153.0
+offset_bottom = 653.0
+color = Color(1, 1, 1, 0)
+
+[node name="Button2" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 508.0
+offset_top = 603.0
+offset_right = 625.0
+offset_bottom = 641.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "-HOME-"
+script = ExtResource("2_3103v")
+
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]

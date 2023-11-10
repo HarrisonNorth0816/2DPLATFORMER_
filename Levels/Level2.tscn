@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=3 uid="uid://g1y7t4poj6a3"]
+
+[ext_resource type="Texture2D" uid="uid://b4xj5v3v4jr3x" path="res://Assets/background.png" id="1_7m0ti"]
+[ext_resource type="Script" path="res://StateMachine/Player_Container.gd" id="2_8nfrs"]
+[ext_resource type="PackedScene" uid="uid://c3tf31w2kdtx1" path="res://Enemies/Bat.tscn" id="3_wn76c"]
+[ext_resource type="PackedScene" uid="uid://cye7bc32e7aer" path="res://Enemies/Golem.tscn" id="4_56ab8"]
+[ext_resource type="PackedScene" uid="uid://cqwfa5aslniok" path="res://Enemies/Wolf.tscn" id="5_oa2m6"]
+[ext_resource type="Script" path="res://Camera.gd" id="6_x6e1e"]
+[ext_resource type="Texture2D" uid="uid://desq04sivahhu" path="res://Assets/Tiles.png" id="7_2h8jd"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gf1qj"]
+texture = ExtResource("7_2h8jd")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31.5, -32, 30, -30.5, 38.4276, -13.8591, 32, 31, -31, 32.5, -31.5, -31.5)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_tgxft"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_gf1qj")
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dfs17"]
+vertices = PackedVector2Array(2492, 894, 2318, 948, 2207, 957, 1809, 941, 1545, 792, 1551, 675, 3831, -26, 4119, -21, 4356, 822, 4272, 828, 2752, 892, 2660, -875, 2985, -875, 4109, -351, 4008, -350, 2960, -551, 2649, -623, 2638, -728, 5296, -1397, 5224, 1395, 2979, -993, 2207, 1238, 2069, 1174, 2066, 1069, 1846, 1085, 1805, 1049, 2871, -1196, 2863, -1310, 2655, -966, 2412, -1199, 1592, 950, 1588, 1051, 1359, 972, 1356, 876, 1171, 1010, 1165, 1118, 1138, 972, 943, 1019, 1135, 888, 890, 958, 876, 873, 4299, 1283, 4293, 1226, 4362, 1226, 2752, 965, 4278, 1205, 3479, -37, 3474, -110, 3831, -105, 2318, 1190, 2504, 962, 1329, 786, 4008, -155, 3857, -147, 3857, -213, 2666, -431, 2939, -420, 2928, -231, -11, -1460, 2419, -1294, -29, 821, 2993, -220, 2987, -186, 3428, -158, 3152, -151, 3149, -221, 3438, -218, 3084, -312, 3042, -310, 3031, -475, 3068, -115, 3112, -113, 3117, -31, 2423, -707, 3068, -175, 2288, 1238, 2297, 1289, -20, 1467, 2963, -485, 3098, -224, 15, 873, 2419, -629, 1329, 693, 1853, 1169, 946, 1115, -4, 963, 2666, -513, 2661, -551)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(5, 6, 7, 8, 9, 10, 0), PackedInt32Array(11, 12, 13, 14, 15, 16, 17), PackedInt32Array(7, 13, 18, 19, 8), PackedInt32Array(18, 13, 12, 20), PackedInt32Array(2, 21, 22, 23), PackedInt32Array(3, 2, 23, 24, 25), PackedInt32Array(18, 20, 26, 27), PackedInt32Array(26, 20, 28, 29), PackedInt32Array(4, 30, 31, 32, 33), PackedInt32Array(34, 32, 31, 35), PackedInt32Array(36, 32, 34, 37), PackedInt32Array(38, 36, 37, 39, 40), PackedInt32Array(41, 42, 43, 19), PackedInt32Array(44, 10, 9, 45), PackedInt32Array(46, 47, 48, 6), PackedInt32Array(44, 45, 49, 50), PackedInt32Array(50, 49, 1, 0), PackedInt32Array(4, 3, 30), PackedInt32Array(51, 4, 33, 38), PackedInt32Array(52, 53, 54, 14), PackedInt32Array(55, 56, 57, 5), PackedInt32Array(58, 18, 27), PackedInt32Array(58, 27, 59), PackedInt32Array(60, 58, 59, 29), PackedInt32Array(57, 61, 62, 5), PackedInt32Array(63, 64, 65, 66), PackedInt32Array(67, 68, 69), PackedInt32Array(70, 71, 72, 5), PackedInt32Array(60, 29, 28, 11, 73), PackedInt32Array(62, 74, 70, 5), PackedInt32Array(21, 75, 76, 77), PackedInt32Array(69, 78, 15, 14), PackedInt32Array(19, 43, 8), PackedInt32Array(46, 6, 5, 72), PackedInt32Array(65, 79, 67, 66), PackedInt32Array(11, 17, 73), PackedInt32Array(80, 60, 73, 81, 40), PackedInt32Array(82, 51, 38), PackedInt32Array(66, 67, 69, 14, 54), PackedInt32Array(41, 19, 77, 76), PackedInt32Array(22, 21, 77, 83), PackedInt32Array(31, 25, 24, 83, 77, 35), PackedInt32Array(84, 35, 77), PackedInt32Array(39, 37, 84, 77, 85), PackedInt32Array(85, 77, 60), PackedInt32Array(80, 85, 60), PackedInt32Array(38, 40, 81, 82), PackedInt32Array(86, 55, 5, 82, 81, 16, 87), PackedInt32Array(15, 87, 16)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(15, 873, 876, 873, 890, 958, -4, 963), PackedVector2Array(943, 1019, 946, 1115, 1165, 1118, 1171, 1010), PackedVector2Array(1135, 888, 1138, 972, 1359, 972, 1356, 876), PackedVector2Array(1329, 693, 1329, 786, 1545, 792, 1551, 675), PackedVector2Array(2318, 948, 2318, 1190, 4278, 1205, 4272, 828, 4356, 822, 4362, 1226, 4293, 1226, 4299, 1283, 2297, 1289, 2288, 1238, 2207, 1238, 2207, 957), PackedVector2Array(2492, 894, 2504, 962, 2752, 965, 2752, 892), PackedVector2Array(1592, 950, 1588, 1051, 1805, 1049, 1809, 941), PackedVector2Array(1846, 1085, 1853, 1169, 2069, 1174, 2066, 1069), PackedVector2Array(2423, -707, 2419, -629, 2649, -623, 2638, -728), PackedVector2Array(2655, -966, 2660, -875, 2985, -875, 2979, -993), PackedVector2Array(2419, -1294, 2412, -1199, 2871, -1196, 2863, -1310), PackedVector2Array(2666, -513, 2666, -431, 2939, -420, 2928, -231, 2993, -220, 2987, -186, 3068, -175, 3068, -115, 3112, -113, 3117, -31, 3479, -37, 3474, -110, 3831, -105, 3831, -26, 4119, -21, 4109, -351, 4008, -350, 4008, -155, 3857, -147, 3857, -213, 3438, -218, 3428, -158, 3152, -151, 3149, -221, 3098, -224, 3084, -312, 3042, -310, 3031, -475, 2963, -485, 2960, -551, 2661, -551), PackedVector2Array(-29, 821, -11, -1460, 5296, -1397, 5224, 1395, -20, 1467)])
+
+[node name="Game" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -2429.0
+offset_top = -3408.0
+offset_right = 10156.0
+offset_bottom = 3265.0
+texture = ExtResource("1_7m0ti")
+
+[node name="Player_Container" type="Node2D" parent="."]
+script = ExtResource("2_8nfrs")
+
+[node name="Enemy_Container" type="Node2D" parent="."]
+
+[node name="Bat3" parent="Enemy_Container" instance=ExtResource("3_wn76c")]
+position = Vector2(3846, 351)
+
+[node name="Golem" parent="Enemy_Container" instance=ExtResource("4_56ab8")]
+position = Vector2(3201, 1108)
+
+[node name="Wolf" parent="Enemy_Container" instance=ExtResource("5_oa2m6")]
+position = Vector2(3542, -327)
+
+[node name="Bat" parent="Enemy_Container" instance=ExtResource("3_wn76c")]
+position = Vector2(3397, 255)
+
+[node name="Bat2" parent="Enemy_Container" instance=ExtResource("3_wn76c")]
+position = Vector2(2796, 326)
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+limit_left = 0
+limit_bottom = 1275
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+script = ExtResource("6_x6e1e")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_tgxft")
+format = 2
+layer_0/tile_data = PackedInt32Array(917504, 0, 0, 917505, 0, 0, 917506, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 0, 917510, 0, 0, 917511, 0, 0, 917512, 0, 0, 917513, 0, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 1245246, 0, 0, 1245247, 0, 0, 1245248, 0, 0, 1245249, 0, 0, -131023, 0, 0, -131022, 0, 0, -131021, 0, 0, -131020, 0, 0, -131019, 0, 0, 1245244, 0, 0, 1245243, 0, 0, 1245242, 0, 0, 1245241, 0, 0, 1245240, 0, 0, 1245239, 0, 0, 1245238, 0, 0, 1245237, 0, 0, 1245236, 0, 0, 1245235, 0, 0, 1245234, 0, 0, 1245233, 0, 0, 1245232, 0, 0, 1245231, 0, 0, 1245230, 0, 0, 1245229, 0, 0, 1245228, 0, 0, 1245227, 0, 0, 1245226, 0, 0, 1245225, 0, 0, 1245224, 0, 0, 1245223, 0, 0, 1245245, 0, 0, 917543, 0, 0, 917544, 0, 0, 917545, 0, 0, 917546, 0, 0, 1245250, 0, 0, 1179715, 0, 0, 786501, 0, 0, 786502, 0, 0, 786503, 0, 0, 786504, 0, 0, -196560, 0, 0, -262097, 0, 0, -327634, 0, 0, -393170, 0, 0, -458706, 0, 0, 589898, 0, 0, 589897, 0, 0, 589899, 0, 0, 458828, 0, 0, 458829, 0, 0, 458830, 0, 0, 196683, 0, 0, 196682, 0, 0, 196681, 0, 0, 65608, 0, 0, 65607, 0, 0, 65606, 0, 0, -65468, 0, 0, -65469, 0, 0, -65470, 0, 0, -65471, 0, 0, -131012, 0, 0, -131011, 0, 0, -131010, 0, 0, -131009, 0, 0, -196545, 0, 0, -262081, 0, 0, -327617, 0, 0, 1114179, 0, 0, 1048643, 0, 0, 983107, 0, 0, 917571, 0, 0, 852035, 0, 0, 786500, 0, 0, -524243, 0, 0, -524244, 0, 0, -524245, 0, 0, -524246, 0, 0, -720856, 0, 0, -720857, 0, 0, -720858, 0, 0, -982998, 0, 0, -982997, 0, 0, -982996, 0, 0, -982995, 0, 0, -1310682, 0, 0, -1310681, 0, 0, -1310680, 0, 0, -1310679, 0, 0, -1310678, 0, 0, -1310677, 0, 0, -393153, 0, 0, -458689, 0, 0, -524225, 0, 0, -589761, 0, 0, -655297, 0, 0, -524242, 0, 0, -589778, 0, 0, -655314, 0, 0, -720848, 0, 0, -720834, 0, 0, -720849, 0, 0, -720835, 0, 0, -720843, 0, 0, -720842, 0, 0, -720841, 0, 0, -720840, 0, 0, -131014, 0, 0, -131015, 0, 0, -131016, 0, 0, -131017, 0, 0, -131018, 0, 0, -131013, 0, 0, 851968, 0, 0, 786432, 0, 0, 720896, 0, 0, 655360, 0, 0, 589824, 0, 0, 655373, 0, 0, 720909, 0, 0, 786445, 0, 0, 851981, 0, 0, 589837, 0, 0, 524301, 0, 0, 458765, 0, 0, 393229, 0, 0, 327693, 0, 0, 262157, 0, 0, 196621, 0, 0, 131085, 0, 0, 131084, 0, 0, 131083, 0, 0, 131082, 0, 0, 131081, 0, 0, 131080, 0, 0, 131079, 0, 0, 131078, 0, 0, 131077, 0, 0, 131076, 0, 0, 131075, 0, 0, 131074, 0, 0, 131073, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 524288, 0, 0)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_dfs17")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 172.0
+offset_top = 222.0
+offset_right = 678.0
+offset_bottom = 410.0
+theme_override_font_sizes/font_size = 50
+text = "Under construction!
+:D
+"
