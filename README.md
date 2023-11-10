@@ -1,28 +1,33 @@
-# Exercise 4.4—Enemies
+Project Name
+2D platformer
 
-Exercise for MSCH-C220
+Context and date 10/31/23
 
-An exercise for the 2D Platformer project, exploring attacking and three different enemy types.
+Description a 2d platformer
 
-## Implementation
+Implementation
+What Makes this a Game?
+competence: By not only collecting coins, but entering combat you can gain more and more score, also there is a final goal of the what you trying to heist.
 
-Built using Godot 4.1.1
+automy: There is not a ton of autonomy, its a fairly linear 2D platformer so there isnt much variety. The only major ones are if you want to enter combat or just avoid.
 
-The player sprite is an adaptation of [MV Platformer Male](https://opengameart.org/content/mv-platformer-male-32x64) by MoikMellah. CC0 Licensed.
+relatedness: I feel like it may be hard to relate to a career criminal in the future, but I chose this setting due to it being one of my favorite settings in fiction. Some of my favorite movies are the blade runner games and one of my favorite games of all time is cyberpunk 2077, with some obvious influence from both sources.
 
-The [tilemap](https://kenney.nl/assets/abstract-platformer) is provided by Kenney.nl.
+References
+tilemap : https://anokolisa.itch.io/sidescroller-shooter-central-city
 
-The enemies are from the [Medieval Fantasy Character Pack by OcO](https://oco.itch.io/medieval-fantasy-character-pack). CC0 Licensed
+font: https://www.fontspace.com/procyon-font-f103732
 
-## References
+shaders used on title screen: https://godotshaders.com/shader/crt-with-variable-fisheye/ https://godotshaders.com/shader/ripple-gradient-shader-2/
 
-None
+Background, enemies, music and any other unlisted assets are created by me!
 
-## Future Development
+features -score -coins -basic combat and enemy layouts -custom music -handful of custom assets -3 enemies -info screen with story!
 
-None
+basic storyline to follow
+and MORE!
+Future Development
+None!
 
-## Created by 
-
+Created by
 Harrison North
-```
